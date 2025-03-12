@@ -1,0 +1,290 @@
+#Input examples for a game description 
+
+example1_pacman: >
+  """
+    Game Overview:
+
+    Pac-Man is a classic arcade game where the player controls a character, Pac-Man, through a maze. The objective is to eat all the pellets in the maze while avoiding four ghosts that pursue Pac-Man. If Pac-Man eats a large power pellet, the ghosts turn blue, and Pac-Man can eat them for extra points. 
+    The game is over when Pac-Man is caught by a ghost or when the player runs out of lives.
+    Core Game Elements:
+
+        Maze Layout:
+            The game is set within a grid-like maze. The walls are solid, and Pac-Man cannot pass through them.
+            The maze contains corridors where Pac-Man can move in four directions: up, down, left, and right. Some sections of the maze loop back on themselves.
+            The maze contains two types of special tiles:
+                Pellets: Small dots scattered throughout the maze, worth 10 points each.
+                Power Pellets: Larger dots placed in the four corners of the maze, worth 50 points each. Eating a Power Pellet allows Pac-Man to eat the ghosts for a limited time.
+
+        Player Controls:
+            The player controls Pac-Man's movement using arrow keys (or other directional inputs, such as WASD).
+            Pac-Man moves continuously in the chosen direction until blocked by a wall or until the player changes direction.
+            Pac-Man cannot stop moving, so the player must carefully time movements and changes in direction.
+
+        Pac-Man Mechanics:
+            Movement: Pac-Man moves one tile at a time in a grid-based movement system.
+            Collision Detection: Pac-Man collides with walls, pellets, power pellets, and ghosts. Pac-Man cannot pass through walls.
+            Pellet Collection: When Pac-Man moves onto a tile containing a pellet, it is "eaten," and the pellet disappears.
+            Power Pellet Effects: Eating a Power Pellet allows Pac-Man to turn the ghosts blue for a short period (usually 7-10 seconds). During this time, Pac-Man can eat the ghosts for extra points. Ghosts revert to their regular form after the time limit.
+
+        Ghosts:
+            There are four ghosts: Blinky, Pinky, Inky, and Clyde. Each has a distinct behavior pattern:
+                Blinky (Red Ghost): Aggressively pursues Pac-Man, always targeting his current location.
+                Pinky (Pink Ghost): Attempts to ambush Pac-Man by aiming four tiles ahead of Pac-Man's current direction.
+                Inky (Cyan Ghost): Has a more complex behavior, targeting an area between Pac-Man and Blinky's current location.
+                Clyde (Orange Ghost): Alternates between chasing Pac-Man and wandering randomly when he gets too close to Pac-Man.
+            Ghost Movement: Ghosts move one tile at a time, just like Pac-Man, and they can change directions at intersections. Their goal is to catch Pac-Man.
+            Ghost States:
+                Chase Mode: Ghosts actively pursue Pac-Man based on their unique behavior patterns.
+                Scatter Mode: Ghosts move to specific corners of the maze, where they “scatter” and remain for a brief period before returning to Chase mode.
+                Frightened Mode: After Pac-Man eats a Power Pellet, ghosts turn blue and flee from Pac-Man. In this mode, Pac-Man can eat them for extra points. When a ghost is eaten, it respawns at the center of the maze and resumes chasing Pac-Man.
+
+        Scoring System:
+            Eating a pellet: 10 points.
+            Eating a Power Pellet: 50 points.
+            Eating a ghost (in Frightened mode):
+                First ghost: 200 points.
+                Second ghost: 400 points.
+                Third ghost: 800 points.
+                Fourth ghost: 1600 points.
+            Clearing a level (eating all the pellets): Bonus points for completing the level.
+
+        Lives and Game Over:
+            Pac-Man starts the game with 3 lives.
+            If a ghost touches Pac-Man while in its normal or chase mode, Pac-Man loses a life.
+            When all lives are lost, the game ends.
+
+        Level Progression:
+            After all pellets and Power Pellets are consumed in the maze, Pac-Man progresses to the next level.
+            Each new level increases the game difficulty, making the ghosts move faster.
+            At higher levels, the time that ghosts remain blue after eating a Power Pellet decreases, eventually reaching a point where they no longer turn blue.
+
+        Warp Tunnels:
+            The maze has two special tunnels on the left and right edges that act as "warp tunnels."
+            When Pac-Man or the ghosts enter one side, they instantly reappear on the opposite side of the maze.
+
+    Mechanics Used in the Game:
+
+        Tile-Based Movement:
+            The entire game operates on a grid, where each movement happens from one tile to another. Both Pac-Man and the ghosts must follow the grid's structure.
+
+        Pathfinding (Ghost AI):
+            The ghosts use basic pathfinding algorithms to chase Pac-Man. One common method for this is the A algorithm* or a simplified greedy algorithm to determine the shortest path toward Pac-Man.
+            Each ghost has its unique targeting behavior, ranging from direct pursuit to attempting ambush strategies.
+
+        State Management:
+            Pac-Man's State: Handles whether Pac-Man is in a normal state, Power Pellet state (can eat ghosts), or has collided with a ghost.
+            Ghosts' State: Manages transitions between three ghost states:
+                Chase State: Actively chasing Pac-Man.
+                Scatter State: Retreats to their designated corners.
+                Frightened State: Turns blue and flees from Pac-Man, allowing Pac-Man to eat them.
+
+        Collision Detection:
+            Pellets and Pac-Man: When Pac-Man's position matches a pellet's position, the pellet is eaten.
+            Ghosts and Pac-Man: When Pac-Man's position matches a ghost's position:
+                If the ghost is in Frightened mode, Pac-Man eats the ghost.
+                If the ghost is in Chase or Scatter mode, Pac-Man loses a life.
+
+        Timer and Speed Control:
+            The game runs on a time-based loop where Pac-Man and the ghosts move at set intervals.
+            Ghosts' speeds increase over time, making higher levels more difficult.
+
+        Level Design and Randomness:
+            While the layout of the maze stays the same, the randomness in ghost behavior and increasing speed add variability to each playthrough.
+
+        Game Over Conditions:
+            When Pac-Man has no remaining lives, the game ends, displaying a "Game Over" screen.
+            The players final score is shown"""
+
+example2_pacman: >
+  Build a Pacman game, where the pacman moves up, down, left, right with the use of keyboard arrows. each food dot he eats, he gets a point. ghosts appear at random
+  times and move randomly and if they hit pacman, it loses a life, he has three lives, then game over. if he finishes all food points in one level, he moves on to the next
+  level, in which pacman moves faster, and more ghosts appear.
+
+
+example3_snake: >
+  """Snake Game Description
+    Objective:
+
+    The objective of the Snake game is for the player to control a snake that moves across the game area, consuming food while avoiding obstacles, including its own tail. The snake grows longer each time it consumes food, and the game continues until the snake collides with the boundaries of the game area or its own body.
+    Game Mechanics:
+
+    Game Area:
+        The game takes place in a rectangular grid, typically represented as a 2D matrix or array.
+        The grid contains cells, where the snake can move and food can spawn.
+
+    Snake Movement:
+        The snake is controlled by the player, typically through arrow keys (Up, Down, Left, Right) or WASD keys.
+        The snake moves continuously in one direction until the player changes its direction.
+        Movement is discrete, with the snake advancing one cell per frame or tick.
+        The snake's body consists of connected segments that follow the movement of the head, forming a continuous line.
+
+    Growth Mechanism:
+        The snake starts with a default length (e.g., 3 segments) and grows longer by one segment every time it eats food.
+        The new segment is added to the end of the snake's body after consuming food.
+
+    Food:
+        Randomly spawns at an unoccupied position in the game area (i.e., not on the snake's body).
+        Each piece of food can only be consumed once.
+        After being consumed, a new piece of food spawns at another random position.
+
+    Collisions:
+        The game ends when the snake collides with any of the following:
+            Walls: The boundaries of the game area.
+            Self: The snake's own body.
+
+    Game Rules:
+
+    Movement:
+        The snake moves continuously, and the player can change its direction using input keys.
+        The snake cannot move in the opposite direction of its current movement (e.g., if moving right, it cannot immediately move left).
+
+    Boundaries:
+        The edges of the grid act as walls. If the snake crosses these boundaries, the game is over.
+
+    Self-Collision:
+        The snake's body grows as it consumes food, but if the snake's head touches any part of its body, the game ends.
+
+    Scoring System:
+
+    Food Consumption:
+        Every time the snake eats a piece of food, the player earns points.
+        The typical scoring system could be:
+            10 points per food item consumed.
+        The score increases with each successful food consumption.
+
+    Time or Speed-Based Scoring (Optional):
+        Additional points can be awarded based on how long the player survives, or the game can speed up as the snake grows, increasing difficulty over time.
+
+    High Score:
+        The player's current score is displayed during gameplay.
+        A high-score system can be implemented to keep track of the highest score achieved. """
+
+example4_mariobros: >
+  """Super Mario Bros Game Description
+    Overview:
+
+    Super Mario Bros is a classic platformer game where the player controls Mario, a plumber, as he embarks on a quest to rescue Princess Peach from the evil Bowser. The game is divided into levels, each with its unique challenges, enemies, and obstacles. Mario must navigate through the levels, avoiding hazards and defeating enemies to reach the end and save the princess.
+    Core Game Elements:
+
+    Player Character:
+        Mario: The player controls Mario, who can run, jump, and interact with the environment.
+        Movement: Mario can move left and right, jump, and crouch.
+        Jumping: Mario can jump to reach higher platforms, avoid enemies, and collect power-ups.
+        Power-ups: Mario can collect power-ups that grant him special abilities, such as increased speed, invincibility, or the ability to shoot fireballs.
+
+    Enemies:
+        Goombas: Basic enemies that move back and forth in a straight line. Mario can defeat them by jumping on them.
+        Koopa Troopas: Turtle-like enemies that walk back and forth. Mario can jump on them to defeat them or kick their shells to attack other enemies.
+        Piranha Plants: Stationary enemies that emerge from pipes. Mario must avoid or defeat them to progress.
+        Bowser: The main antagonist, who appears as the final boss at the end of the game.
+
+    Obstacles:
+        Gaps: Gaps in the ground that Mario must jump over to avoid falling.
+        Spikes: Hazardous spikes that can damage Mario on contact.
+        Lava: Deadly lava that Mario must avoid to survive.
+        Blocks: Breakable blocks that may contain power-ups, coins, or enemies.
+        Moving Platforms: Platforms that move horizontally or vertically, requiring precise timing to navigate.
+
+    Power-ups:
+        Super Mushroom: Increases Mario's size and allows him to take an extra hit without dying.
+        Fire Flower: Grants Mario the ability to shoot fireballs, defeating enemies from a distance.
+        Starman: Grants Mario temporary invincibility, allowing him to defeat enemies by touching them.
+
+    Coins:
+        Coins are collectible items scattered throughout the levels.
+        Collecting coins grants the player points and may provide extra lives when a certain number of coins are collected.
+
+    Level Design:
+        Levels are designed with various challenges, including platforming sections, enemy encounters, and puzzles.
+        Each level has a unique
+        theme, such as underground caves, castles, or underwater environments.
+        Levels may contain secret areas with hidden power-ups or shortcuts.
+
+example4_grandtheftauto: >
+    """Grand Theft Auto Game Description
+        Overview:
+    
+        Grand Theft Auto (GTA) is an open-world action-adventure game series known for its sandbox gameplay, where players can explore a vast city, engage in missions, and interact with the environment. Players take on the role of a criminal protagonist navigating the criminal underworld, completing missions, and engaging in various activities, such as driving, shooting, and exploring the city.
+        Core Game Elements:
+    
+        Player Character:
+            Protagonist: The player controls a criminal protagonist with a unique backstory and motivations.
+            Movement: The player can move the character freely through the city on foot or using vehicles.
+            Interactions: The player can interact with NPCs, objects, and vehicles in the environment.
+    
+        Missions:
+            Story Missions: Main missions that progress the game's narrative and character development.
+            Side Missions: Optional missions that provide additional challenges, rewards, and opportunities to explore the city.
+            Activities: Various activities
+            such as racing, shooting ranges, and mini-games that offer gameplay variety.
+        
+        Combat:
+            Shooting: Players can engage in gunfights with enemies, law enforcement, or rival gangs.
+            Melee Combat: Hand-to-hand combat with punches, kicks, and melee weapons.
+            Stealth: Players can use stealth to avoid detection or take out enemies silently.
+        
+        Driving:
+            Vehicles: Players can drive a variety of vehicles, including cars, motorcycles, boats, and planes.
+            Vehicle Customization: Some games allow players to customize vehicles with paint jobs, upgrades, and modifications.
+            Vehicle Combat: Players can engage in vehicle combat, such as car chases, drive-by shootings, and vehicle destruction.
+
+        Open World:
+            City: The game world is a detailed city with various districts, landmarks, and environments.
+            Exploration: Players can freely explore the city, discovering hidden locations, collectibles, and secrets.
+            NPCs: Non-playable characters populate the city, providing missions, interactions, and dynamic events.
+
+        Economy:
+            Money: Players can earn money through missions, activities, and other means.
+            Purchases: Players can spend money on weapons, vehicles, properties, and other items.
+            Businesses: Some games feature player-owned businesses that generate income.
+
+        Wanted System:
+            Law Enforcement: Players can attract the attention of the police by committing crimes or causing disturbances.
+            Wanted Levels: The wanted system assigns levels of police response based on the player's actions, from a simple arrest to a full-scale manhunt.
+            Escaping: Players can evade the police by hiding, changing appearance, or leaving the wanted area.
+
+example5_gestionhopital: >
+   """Hospital bed occupancy application Description
+        Overview:
+            A webapp that allows hospital staff to manage bed occupancy in real-time. The application provides a visual representation of the hospital's bed layout, 
+            showing which beds are occupied, available, or reserved. Staff can update bed status, assign patients to beds, and view patient information.
+            Webapp must be coded in french, with python, html, css and javascript.
+            Tailwind css is used for the design.
+            The application should be responsive and accessible on mobile devices.
+        Core Features:
+            Bed Layout:
+                The application displays a visual representation of the hospital's bed layout, organized by wards or units.
+                Each bed is represented as a block or icon, color-coded to indicate its status (e.g., green for available, red for occupied).
+                Staff can click on a bed to view detailed information, such as patient name, condition, and assigned staff.
+            Bed Status:
+                Beds can have different statuses, including:
+                    Available: The bed is empty and ready for a new patient.
+                    Occupied: The bed is currently in use by a patient.
+                    Reserved: The bed is reserved for a specific patient who will arrive soon.
+            Patient Management:
+                Staff can assign patients to beds, update patient information, and transfer patients between beds or units.
+                Patient records include personal details, medical history, treatment plans, and assigned healthcare providers.
+            Real-Time Updates:
+                The application updates bed status and patient information in real-time, ensuring staff have the latest information on bed availability and patient assignments.
+            Reporting:
+                The application generates reports on bed occupancy, patient demographics, average length of stay, and other key metrics.
+                Reports help hospital administrators optimize bed allocation, staffing, and resource utilization.
+            User Roles:
+                The application supports different user roles, such as nurses, doctors, administrators, and support staff, each with specific permissions and access levels.
+            Security:
+                The application implements security measures to protect patient data, ensure compliance with privacy regulations, and prevent unauthorized access.
+            Integration:
+                The application integrates with hospital information systems, electronic health records, and other healthcare software to streamline data sharing and improve care coordination.
+            Mobile Access:
+                Staff can access the application on mobile devices, allowing them to manage bed occupancy, view patient information, and receive alerts or notifications on the go.
+            Scalability:
+                The application is designed to scale with the hospital's needs, supporting multiple wards, units, and facilities, and accommodating changes in bed capacity or layout.
+            Customization:
+                Hospitals can customize the application to match their specific workflows, terminology, and reporting requirements, ensuring a seamless fit with existing processes and systems."""
+            Langage:
+                The webapp needs to be in french, as the hospital staff is french-speaking.
+            Design:
+                The design should be clean, intuitive, and user-friendly, with a focus on usability and accessibility.
+                With a color scheme that is easy on the eyes and provides clear visual cues for bed status and patient information.
+                And a responsive layout that adapts to different screen sizes and devices, ensuring a consistent user experience across desktop, tablet, and mobile platforms.
+                Dark mode is also a plus, as it reduces eye strain and improves readability in low-light environments.

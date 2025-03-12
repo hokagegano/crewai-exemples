@@ -1,0 +1,90 @@
+code_task:
+  description: >
+    {game} : As the backend developer, you will design and implement the backend architecture for this software project. This includes setting up a database (MySQL, PostgreSQL, or MongoDB), creating RESTful or GraphQL APIs to interact with the frontend, managing user authentication (JWT, OAuth), and ensuring proper error handling and logging mechanisms. Focus on scalability and performance optimization to ensure the system can handle future growth.
+    
+    Instructions
+    ------------
+    1. Set up the backend architecture using a suitable framework (Node.js, Django, etc.).
+    2. Create a database schema based on project requirements.
+    3. Develop RESTful APIs (or GraphQL) for data retrieval and manipulation.
+    4. Implement user authentication and authorization mechanisms.
+    5. Ensure the backend is optimized for scalability and performance.
+    6. Implement robust error handling and logging mechanisms.
+    7. Write unit tests for each component to ensure correctness.
+    8. Integrate with the frontend by providing clear API endpoints for data exchange.
+    9. Document the backend architecture and API endpoints for future reference.
+
+
+  expected_output: >
+    Your final result should include a fully functional backend, complete with API endpoints, database schema, 
+    user authentication mechanisms, error handling, and unit tests. 
+    Ensure the code is well-documented and follows best practices in scalability and performance optimization.
+    Output should be the full code, only the code and nothing else.
+
+
+design_task:
+  description: >
+    {game} : As the backend developer, you will design and implement the backend architecture for this software project. 
+    This includes setting up a database (MySQL, PostgreSQL, or MongoDB), creating RESTful or GraphQL APIs to interact with the frontend, 
+    managing user authentication (JWT, OAuth), and ensuring proper error handling and logging mechanisms. 
+    Focus on scalability and performance optimization to ensure the system can handle future growth.
+    
+    Instructions
+    ------------
+    1. Set up the backend architecture using a suitable framework (Node.js, Django, etc.).
+    2. Create a database schema based on project requirements.
+    3. Develop RESTful APIs (or GraphQL) for data retrieval and manipulation.
+    4. Implement user authentication and authorization mechanisms.
+    5. Ensure the backend is optimized for scalability and performance.
+    6. Implement robust error handling and logging mechanisms.
+    7. Write unit tests for each component to ensure correctness.
+    8. Integrate with the frontend by providing clear API endpoints for data exchange.
+    
+    for this application : {game}    
+  expected_output: >
+    Your final result should be include all the code for the backend architecture, including database schema, API endpoints,
+    user authentication mechanisms, error handling, and unit tests.
+    Enhance this output with all the code for the frontend design, including HTML, CSS, and JavaScript to create a visually appealing and responsive user interface.
+    Output should be the full code, only the code and nothing else.
+
+
+# review_task:
+#   description: >
+#     {game}: You will create an application web in javascript, html and css, these are the instructions:
+
+#     Instructions
+#     ------------
+
+
+#     As the project manager, you are responsible for organizing the development process. Create a project plan with milestones, 
+#     specific tasks, deadlines, and assigned responsibilities for both backend and frontend developers. 
+#     The plan should include regular check-ins, sprint planning, and task prioritization based on importance and dependencies. 
+#     Additionally, outline risk management strategies to handle potential delays or blockers in the project.
+    
+#     Instructions
+#     ------------
+#     1. Break down the project into major phases such as planning, backend development, frontend development, testing, and deployment.
+#     2. Assign clear tasks to each developer (backend and frontend).
+#     3. Define specific deliverables for each phase.
+#     4. Set realistic deadlines for each milestone.
+#     5. Plan and allocate resources effectively to ensure progress on schedule.
+#     6. Track progress and identify potential risks or blockers. Take proactive measures to resolve them.
+#     7. Ensure seamless communication between backend and frontend developers to maintain project cohesion.
+    
+#   expected_output: >
+#     Your final result should be include all the code for the backend architecture, including database schema, API endpoints,
+#     user authentication mechanisms, error handling, and unit tests.
+#     Enhance this output with all the code for the frontend design, including HTML, CSS, and JavaScript to create a visually appealing and responsive user interface.
+#     Enchance also this output with a comprehensive project plan that outlines tasks, timelines, responsibilities, and risk management strategies.
+#     Output should be the full code, only the code and nothing else.
+
+# evaluate_task:
+#   description: >
+#     {game}: Efficiently manage the crew and ensure high-quality task completion
+#   expected_output: >
+#     Your final result should be include all the code for the backend architecture, including database schema, API endpoints,
+#     user authentication mechanisms, error handling, and unit tests.
+#     Enhance this output with all the code for the frontend design, including HTML, CSS, and JavaScript to create a visually appealing and responsive user interface.
+#     Enchance also this output with a comprehensive project plan that outlines tasks, timelines, responsibilities, and risk management strategies.
+#     Output should be the full code, only the code and nothing else.
+    
